@@ -23,7 +23,7 @@ Then('User should see Examo Logo', async function () {
     .locator('#__next > div > div > div.css-1781tq6 > div.css-542oke > div.css-j7qwjs > h1')
     .allTextContents();
   //Checking
-  console.log('TEXT FROM SELECTOR: ', textFromLocator[0]);
+  console.log('text from examo logo: ', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);
 });
 
