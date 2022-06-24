@@ -1,8 +1,8 @@
 const { Before, When, Then, After } = require('@cucumber/cucumber');
+const { expect } = require('chai');
 const playwright = require('playwright');
 var { setDefaultTimeout } = require('@cucumber/cucumber');
-setDefaultTimeout(60 * 1000);
-const { expect } = require('chai');
+setDefaultTimeout(60000);
 
 var browser;
 var page;
@@ -17,11 +17,12 @@ When('User opens Examo webpage', async function () {
 });
 
 Then('User should see Examo Logo', async function () {
+  //Getting
   const expectedText = 'EXAMO';
   const textFromLocator = await page
     .locator('#__next > div > div > div.css-1781tq6 > div.css-542oke > div.css-j7qwjs > h1')
     .allTextContents();
-
+  //Checking
   console.log('TEXT FROM SELECTOR: ', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);
 });
