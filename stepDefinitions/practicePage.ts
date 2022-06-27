@@ -21,6 +21,7 @@ Then('User should see Submit button', async function () {
   const textFromLocator = await page
     .locator('#__next > div > div > div.css-1781tq6 > div > div.css-vinns1 > button > h6')
     .allTextContents();
+
   //Checking
   console.log('name of button:', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);

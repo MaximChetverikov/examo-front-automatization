@@ -22,6 +22,7 @@ Then('User should see Examo Logo', async function () {
   const textFromLocator = await page
     .locator('#__next > div > div > div.css-1781tq6 > div.css-542oke > div.css-j7qwjs > h1')
     .allTextContents();
+
   //Checking
   console.log('text from examo logo: ', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);
