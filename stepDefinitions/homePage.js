@@ -20,6 +20,7 @@ Then('User should see Examo Logo', async function () {
   //Getting
   const expectedText = 'EXAMO';
   const textFromLocator = await page
+    //
     .locator('#__next > div > div > div.css-1781tq6 > div.css-542oke > div.css-j7qwjs > h1')
     .allTextContents();
 
