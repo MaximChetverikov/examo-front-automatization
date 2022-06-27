@@ -16,7 +16,7 @@ When('User opens Examo webpage', async function () {
   await page.goto('https://dev.examo.quantori.com/');
 });
 
-Then('User should see Examo Logo', async function () {
+Then('User should see Examo Logo', async asd function () {
   //Getting
   const expectedText = 'EXAMO';
   const textFromLocator = await page
