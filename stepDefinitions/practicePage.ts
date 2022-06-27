@@ -23,7 +23,6 @@ Then('User should see Submit button', async function () {
     .allTextContents();
 
   //Checking
-  console.log('name of button:', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);
 });
 

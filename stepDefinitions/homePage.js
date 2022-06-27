@@ -1,13 +1,13 @@
-const { BeforeAll, When, Then, After } = require('@cucumber/cucumber');
-const { expect } = require('chai');
-const playwright = require('playwright');
-var { setDefaultTimeout } = require('@cucumber/cucumber');
+const { Before, When, Then, After } = require('@cucumber/cucumber'); // eslint-disable-line
+const { expect } = require('chai'); // eslint-disable-line
+const playwright = require('playwright'); // eslint-disable-line
+const { setDefaultTimeout } = require('@cucumber/cucumber'); // eslint-disable-line
 setDefaultTimeout(60000);
 
-var browser;
-var page;
+let browser;
+let page;
 
-BeforeAll(async function () {
+Before(async function () {
   browser = await playwright.chromium.launch({ headless: false });
   page = await browser.newPage();
 });
@@ -16,7 +16,7 @@ When('User opens Examo webpage', async function () {
   await page.goto('https://dev.examo.quantori.com/');
 });
 
-Then('User should see Examo Logo', async asd function () {
+Then('User should see Examo Logo', async function () {
   //Getting
   const expectedText = 'EXAMO';
   const textFromLocator = await page
@@ -25,7 +25,6 @@ Then('User should see Examo Logo', async asd function () {
     .allTextContents();
 
   //Checking
-  console.log('text from examo logo: ', textFromLocator[0]);
   expect(textFromLocator[0]).to.be.equal(expectedText);
 });
 
