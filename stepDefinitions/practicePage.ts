@@ -1,3 +1,4 @@
+import { url } from '../configs/run_env.json';
 import { Before, When, setDefaultTimeout, Then, After } from '@cucumber/cucumber';
 import { expect } from 'chai';
 import playwright from 'playwright';
@@ -12,7 +13,7 @@ Before(async function () {
 });
 
 When('User opens Practice webpage', async function () {
-  await page.goto('https://dev.examo.quantori.com/practice');
+  await page.goto(url + 'practice');
 });
 
 Then('User should see Submit button', async function () {
