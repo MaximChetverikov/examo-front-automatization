@@ -1,4 +1,4 @@
-const { Before, When, Then, After } = require('@cucumber/cucumber');
+const { BeforeAll, When, Then, After } = require('@cucumber/cucumber');
 const { expect } = require('chai');
 const playwright = require('playwright');
 var { setDefaultTimeout } = require('@cucumber/cucumber');
@@ -7,7 +7,7 @@ setDefaultTimeout(60000);
 var browser;
 var page;
 
-Before(async function () {
+BeforeAll(async function () {
   browser = await playwright.chromium.launch({ headless: false });
   page = await browser.newPage();
 });
