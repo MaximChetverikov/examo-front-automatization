@@ -20,7 +20,7 @@ Then('User should see Submit button', async function () {
   //Getting
   const expectedText = 'Submit';
   const textFromLocator = await page
-    .locator('#__next > div > div > div.css-1781tq6 > div > div.css-vinns1 > button > h6')
+    .locator('.css-vinns1 h6')
     .allTextContents();
 
   //Checking
