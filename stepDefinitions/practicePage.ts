@@ -1,7 +1,7 @@
 import { url } from '../configs/run_env.json';
+import { PracticePage } from '../pageObjects/practice';
 import { When, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
-import { PracticePage } from '../pageObjects/practice';
 
 When('User opens Practice webpage', async function () {
   await global.page.goto(url + 'practice');
