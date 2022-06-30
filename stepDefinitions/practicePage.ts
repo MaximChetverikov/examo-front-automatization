@@ -1,15 +1,11 @@
 import { url } from '../configs/run_env.json';
 import { Before, When, setDefaultTimeout, Then, After } from '@cucumber/cucumber';
 import { expect } from 'chai';
-import playwright from 'playwright';
-
-let browser;
-let page;
+//import playwright from 'playwright';
+import { browser, page } from './general';
 
 Before(async function () {
   setDefaultTimeout(60000);
-  browser = await playwright.chromium.launch({ headless: false });
-  page = await browser.newPage();
 });
 
 When('User opens Practice webpage', async function () {
