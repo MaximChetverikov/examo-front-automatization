@@ -19,9 +19,7 @@ When('User opens Practice webpage', async function () {
 Then('User should see Submit button', async function () {
   //Getting
   const expectedText = 'Submit';
-  const textFromLocator = await page
-    .locator('.css-vinns1 h6')
-    .allTextContents();
+  const textFromLocator = await page.locator('.css-vinns1 h6').allTextContents();
 
   //Checking
   expect(textFromLocator[0]).to.be.equal(expectedText);

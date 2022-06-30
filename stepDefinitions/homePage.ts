@@ -1,8 +1,8 @@
-const { Before, When, Then, After } = require('@cucumber/cucumber'); // eslint-disable-line
-const { expect } = require('chai'); // eslint-disable-line
-const playwright = require('playwright'); // eslint-disable-line
-const config = require('../configs/run_env.json'); // eslint-disable-line
-const { setDefaultTimeout } = require('@cucumber/cucumber'); // eslint-disable-line
+import config from '../configs/run_env.json';
+import { When, Then, setDefaultTimeout, Before, After } from '@cucumber/cucumber';
+import { expect } from 'chai';
+import playwright from 'playwright';
+//import { page, browser } from './generalSteps';
 setDefaultTimeout(60000);
 
 let browser;
@@ -20,9 +20,7 @@ When('User opens Examo webpage', async function () {
 Then('User should see Examo Logo', async function () {
   //Getting
   const expectedText = 'EXAMO';
-  const textFromLocator = await page
-    .locator('.css-j7qwjs h1')
-    .allTextContents();
+  const textFromLocator = await page.locator('.css-j7qwjs h1').allTextContents();
 
   //Checking
   expect(textFromLocator[0]).to.be.equal(expectedText);
