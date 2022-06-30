@@ -1,10 +1,13 @@
 import playwright from 'playwright';
-import { Before } from '@cucumber/cucumber';
+import { AfterAll, BeforeAll, setDefaultTimeout } from '@cucumber/cucumber';
+setDefaultTimeout(60000);
 
 export let browser;
-export let page;
 
-Before(async function () {
-  browser = await playwright.chromium.launch({ headless: false });
-  page = await browser.newPage();
+BeforeAll(async function () {
+  global.browser = await playwright.chromium.launch({ headless: false });
+});
+
+AfterAll(async function () {
+  await global.browser.close();
 });
