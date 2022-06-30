@@ -1,10 +1,7 @@
 import config from '../configs/run_env.json';
-import { When, Then, Before } from '@cucumber/cucumber';
+import { When, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
-
-Before(async function () {
-  global.page = await global.browser.newPage();
-});
+import { HomePage } from '../pageObjects/home';
 
 When('User opens Examo webpage', async function () {
   await global.page.goto(config.url);
@@ -13,7 +10,7 @@ When('User opens Examo webpage', async function () {
 Then('User should see Examo Logo', async function () {
   //Getting
   const expectedText = 'EXAMO';
-  const textFromLocator = await global.page.locator('.css-j7qwjs h1').allTextContents();
+  const textFromLocator = await HomePage.getExamoText(global.page);
 
   //Checking
   expect(textFromLocator[0]).to.be.equal(expectedText);
